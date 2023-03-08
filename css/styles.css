@@ -1,0 +1,13 @@
+.navbar {
+  position: fixed;
+  top: -100px; /* Start hidden above the viewport */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 50; /* Make sure it's on top of other content */
+  transition: top 0.3s ease-in-out;
+}
+
+.navbar--scrolled {
+  top: 0; /* Show the navbar when scrolled */
+}
