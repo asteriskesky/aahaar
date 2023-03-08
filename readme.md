@@ -26,7 +26,7 @@ This project was built using:
 
 ## Getting Started
 
-To get started with Aahaar, you can clone the repository and open the `index.html` file in your preferred web browser. Alternatively, you can visit the hosted website [here](aahaarindia.com).
+To get started with Aahaar, you can clone the repository and open the `index.html` file in your preferred web browser. Alternatively, you can visit the hosted website [here](https://aahaar.vercel.app/).
 
 ## Contributing
 
