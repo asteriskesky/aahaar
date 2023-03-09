@@ -2,6 +2,7 @@ const openMenuButton = document.querySelector('.open-menu-button');
 const openMenuButton2 = document.querySelector('.open-menu-button-2');
 const closeMenuButton = document.querySelector('.close-menu-button');
 const mobileNav = document.querySelector('.mobile-nav');
+const mobileNavLink = document.querySelectorAll('.mobile-nav-link');
 
 openMenuButton.addEventListener('click', function() {
   mobileNav.classList.add('block');
@@ -23,6 +24,12 @@ closeMenuButton.addEventListener('click', function() {
 });
 
 
+mobileNavLink.forEach(function(link) {
+  link.addEventListener('click', function() {
+    mobileNav.classList.remove('block');
+    mobileNav.classList.add('hidden');
+  });
+});
 
 const navbar = document.querySelector('.navbar');
 
