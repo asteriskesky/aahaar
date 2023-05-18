@@ -47,7 +47,7 @@
 
         <a href="#Solution" class="text-sm font-semibold leading-6 text-gray-900 hover:scale-105 :duration-300 transform-gpu">Our solution</a>
 
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:scale-105 :duration-300 transform-gpu">Donations</a>
+        <a href="pages/signup.html" class="text-sm font-semibold leading-6 text-gray-900 hover:scale-105 :duration-300 transform-gpu">Donations</a>
 
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:scale-105 :duration-300 transform-gpu">About Us</a>
       </div>
@@ -436,6 +436,30 @@
 
 
 <script src="js/script.js"></script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCRPf4hHHxYJ_XuVDSqtUkne4CGJDGoWPE",
+    authDomain: "aahaar-ab519.firebaseapp.com",
+    projectId: "aahaar-ab519",
+    storageBucket: "aahaar-ab519.appspot.com",
+    messagingSenderId: "206468608911",
+    appId: "1:206468608911:web:8b97cf864aed0b951751fa",
+    measurementId: "G-X68KZ9EWHC"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
 </body>
 </html>

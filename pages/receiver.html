@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Receiver's Page</title>
+    <!-- Add necessary CSS stylesheets and JavaScript libraries -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional custom styles */
+        #donationsList {
+            margin-top: 20px;
+        }
+
+        .donation-item {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .donation-item h3 {
+            margin-top: 0;
+        }
+
+        .donation-item p {
+            margin-bottom: 5px;
+        }
+
+        .donation-item button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #requestedDonations {
+            margin-top: 20px;
+        }
+
+        .requested-item {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .requested-item h3 {
+            margin-top: 0;
+        }
+
+        .requested-item p {
+            margin-bottom: 5px;
+        }
+
+        .requested-item .contact-info {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Receiver's Page</h1>
+
+    <div>
+        <h2>Search available donations</h2>
+        <form id="searchForm">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+
+            <label for="foodType">Food Type:</label>
+            <select id="foodType" name="foodType">
+                <option value="veg">Vegetarian</option>
+                <option value="nonveg">Non-Vegetarian</option>
+            </select>
+
+            <!-- Add other search criteria fields as needed -->
+
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div id="donationsList"></div>
+
+    <div id="requestedDonations"></div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Handle search request here
+            searchDonations();
+        });
+
+        function searchDonations() {
+            // Retrieve search criteria values
+            let location = document.getElementById('location').value;
+            let foodType = document.getElementById('foodType').value;
+
+            // Perform AJAX request or fetch API to search for donations based on criteria
+            // Replace the code below with your backend integration logic
+
+            // Mocking example data
+            let donations = [
+                {
+                    donorName: 'Mayuri Caterers',
+                    location: 'Ashta, Bhopal',
+                    foodType: 'Non-Veg',
+                    quantity: 25,
+                    contactInfo: 'email@example.com'
+                },
+                {
+                    donorName: 'Maanushya Foundation',
+                    location: 'Sehore, Bhopal',
+                    foodType: 'Veg',
+                    quantity: 30,
+                    contactInfo: 'email@example.com'
+                }
+            ];
+
+            // Clear previous search results
+            document.getElementById('donationsList').innerHTML = '';
+
+            // Display search results
+            donations.forEach(function (donation) {
+                let donationItem = createDonationItem(donation);
+                document.getElementById('donationsList').appendChild(donationItem);
+            });
+        }
+
+        function createDonationItem(donation) {
+            let donationItem = document.createElement('div');
+            donationItem.className = 'donation-item';
+            donationItem.innerHTML = `
+                <h3>${donation.donorName}</h3>
+                <p>Location: ${donation.location}</p>
+                <p>Food Type: ${donation.foodType}</p>
+                <p>Quantity: ${donation.quantity}</p>
+                <p class="contact-info">Contact: ${donation.contactInfo}</p>
+                <button onclick="registerRequest('${donation.donorName}')">Request</button>
+                <hr>
+            `;
+            return donationItem;
+        }
+
+        function registerRequest(donorName) {
+            // Handle request registration here
+            // Replace the code below with your backend integration logic
+            alert(`Request registered with ${donorName}`);
+
+            // Move the requested donation to the requestedDonations section
+            let donationsList = document.getElementById('donationsList');
+            let donationItems = donationsList.getElementsByClassName('donation-item');
+            for (let i = 0; i < donationItems.length; i++) {
+                let donationItem = donationItems[i];
+                if (donationItem.querySelector('h3').textContent === donorName) {
+                    donationItem.querySelector('button').remove();
+                    document.getElementById('requestedDonations').appendChild(donationItem);
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
